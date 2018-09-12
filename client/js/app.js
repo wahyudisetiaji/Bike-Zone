@@ -151,6 +151,32 @@ var login = new Vue({
             .catch((err) => {
                 console.log(err);
             });
+        },
+        formatDate(date) {
+            var monthNames = [
+              "January",
+              "February",
+              "March",
+              "April",
+              "May",
+              "June",
+              "July",
+              "August",
+              "September",
+              "October",
+              "November",
+              "December"
+            ];
+      
+            let day = date.slice(8, 10);
+            let month = date.slice(6, 7);
+            let year = date.slice(0, 4);
+      
+            if (month > 9) {
+              month = `1${month}`;
+            }
+      
+            return day + " " + monthNames[month - 1] + " " + year;
         }
 
     },

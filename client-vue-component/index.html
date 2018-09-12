@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bike-Zone</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./component/footer.js"></script>
+    <script src="./component/nav.js"></script>
+    <script src="./component/modalCart.js"></script>
+    <script src="./component/modalTransaction.js"></script>
+    <script src="./component/modalDetail.js"></script>
+    <script src="./component/cardItem.js"></script>
+    <script src="./component/carouselImage.js"></script>
+    <script src="./component/categoryItem.js"></script>
+    <!-- Custom styles for this template -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+
+  </head>
+
+  <body >
+    <div id="app">
+    <!-- Navigation -->
+    <navbarbike @data-token="token=$event" @data-transaction="transaction=$event" :datacart="datacart"></navbarbike>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-3">
+         <contentcategory @list-category="items=$event"></contentcategory>
+        </div>
+
+        <div class="col-lg-9">
+         <contentcarousel></contentcarousel>
+          <div class="row">
+            <contentcard :items="items" :token="token" @detail-item="bike=$event" @data-cart="datacart=$event"></contentcard>
+            <contentdetail :bike="bike"></contentdetail>
+            <contentcart :datacart="datacart"></contentcart>
+            <contenttransaction :transaction="transaction"></contenttransaction>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footerbike></footerbike>
+  </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+
+</html>

@@ -254,7 +254,8 @@
                         </div>
                         <div class="modal-body" v-for="(data, index) in transaction">
                             <table class="table">
-                                <h5>Id Transaction : {{data._id}}</h5>
+                                <h5>Date: {{formatDate(data.createdAt)}}</h5>
+                                <h5>Id : {{data._id}}</h5>
                                 <thead>
                                   <tr>
                                     <th scope="col">No</th>
@@ -283,7 +284,7 @@
         </div>
       </div>
     </div>
-    <!-- Footer -->
+
     <footer class="py-5 footer">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Bike-Zone 2018</p>
