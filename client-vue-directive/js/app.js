@@ -16,6 +16,7 @@ var login = new Vue({
         totalPrice: 0,
         cart: [],
         transaction: [],
+        search: ''
     },
     methods : {
 
@@ -41,7 +42,6 @@ var login = new Vue({
 
             })
             .catch(err => {
-                console.log(err.response.data.message);
                 if(err.response.data.message){
                     this.errorLogin = 'email or password is wrong !'
                 }
@@ -129,6 +129,7 @@ var login = new Vue({
                 }
             })
             .then((result) => {
+                swal('Cart success create !, you can check email or your transaction')
                 this.cart = [];
                 this.totalCart = '';
                 this.totalPrice = 0;
@@ -211,6 +212,24 @@ var login = new Vue({
         isLogin: function(newIslogin, oldIsLogin){
             if(newIslogin) {
                 this.token = true;
+            }
+        },
+        search: function(newSearch, oldLogin) {
+            if(newSearch) {
+                axios({
+                    method: 'GET',
+                    url: `http://localhost:3000/items/search/${newSearch}`,
+                    headers: {
+                        token: localStorage.getItem('token')
+                    }
+                })
+                .then((result) => {
+                    this.items = result.data.items
+                    
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
             }
         }
 

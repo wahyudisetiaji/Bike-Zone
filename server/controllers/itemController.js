@@ -159,6 +159,36 @@ module.exports = {
 
     },
 
+    searchItem: function(req, res) {
+        let valueSearch = req.params.name
+        Item.find({})
+        .then((item) => {
+ 
+            let items = []
+            item.forEach(element => {
+                if(element.itemName.toLowerCase().indexOf(valueSearch.toLowerCase()) > -1 ) {
+                    items.push(element)
+                    
+                }
+            });
+            console.log(items);
+            
+            res.status(200).json({
+                message: 'data search item !',
+                items
+            })
+
+        })
+        .catch((err) => {
+            
+            res.status(400).json({
+                message: err.message
+            })
+
+        });
+
+    },
+
     categoryItem: function(req, res) {
 
         Item.find({category: req.params.category})

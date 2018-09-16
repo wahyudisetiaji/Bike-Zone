@@ -16,6 +16,7 @@
    
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.28/dist/sweetalert2.all.min.js"></script>
     <!-- Custom styles for this template -->
     <link href="css/shop-homepage.css" rel="stylesheet">
 
@@ -131,6 +132,9 @@
             <a href="#" @click="itemCategory('Gravity')" class="list-group-item">Gravity</a>
             <a href="#" @click="itemCategory('Enduro')" class="list-group-item">Enduro</a>
             <a href="#" @click="itemCategory('Hardtail')" class="list-group-item">Hardtail</a>
+            <div class="list-group-item" style="padding:15px">
+              <input type="text" class="form-control" aria-label="Default"  v-model="search" placeholder="search by name" aria-describedby="inputGroup-sizing-default">
+            </div>
           </div>
 
         </div>
