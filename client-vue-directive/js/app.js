@@ -1,3 +1,5 @@
+// const baseURL = `http://localhost:3000`
+const baseURL = `https://server-bikezone.wahyudisetiaji.xyz`
 var login = new Vue({
     el : "#app",
     data :{
@@ -25,7 +27,7 @@ var login = new Vue({
             event.preventDefault()
             axios({
                 method: 'POST',
-                url: 'http://localhost:3000/users/login',
+                url: `${baseURL}/users/login`,
                 data: {
 
                     email : this.email,
@@ -40,8 +42,11 @@ var login = new Vue({
                 this.email = '';
                 this.password = '';
 
+
             })
             .catch(err => {
+                console.log(err.response)
+                
                 if(err.response.data.message){
                     this.errorLogin = 'email or password is wrong !'
                 }
@@ -52,7 +57,7 @@ var login = new Vue({
             event.preventDefault()
             axios({
                 method: 'POST',
-                url: 'http://localhost:3000/users/register',
+                url: `${baseURL}/users/register`,
                 data: {
                     name : this.name,
                     email : this.email,
@@ -69,8 +74,7 @@ var login = new Vue({
 
             })
             .catch(err => {
-                console.log(err.response);
-                
+
                 if(err.response.data.err.errors.email.message){
                     this.errorRegister.push(err.response.data.err.errors.email.message)
                 }
@@ -103,7 +107,7 @@ var login = new Vue({
   
             axios({
                 method: 'GET',
-                url: `http://localhost:3000/items/${category}`,
+                url: `${baseURL}/items/${category}`,
                 headers: {
                     token: localStorage.getItem('token')
                 }
@@ -119,7 +123,7 @@ var login = new Vue({
         createCart() {
             axios({
                 method: 'POST',
-                url: 'http://localhost:3000/carts',
+                url: `${baseURL}/carts`,
                 headers: {
                     token: localStorage.getItem('token')
                 },
@@ -141,7 +145,7 @@ var login = new Vue({
         myTransaction(){
             axios({
                 method: 'GET',
-                url: 'http://localhost:3000/carts',
+                url: `${baseURL}/carts`,
                 headers: {
                     token: localStorage.getItem('token')
                 }
@@ -181,11 +185,18 @@ var login = new Vue({
         }
 
     },
+    created() {
+        let token = localStorage.getItem('token');
+        if(token) {
+            this.token = true;
+
+        }
+    },
     mounted() {
 
             axios({
                 method: 'GET',
-                url: 'http://localhost:3000/items',
+                url: `${baseURL}/items`,
                 headers: {
                     token: localStorage.getItem('token')
                 }
@@ -218,7 +229,7 @@ var login = new Vue({
             if(newSearch) {
                 axios({
                     method: 'GET',
-                    url: `http://localhost:3000/items/search/${newSearch}`,
+                    url: `${baseURL}/items/search/${newSearch}`,
                     headers: {
                         token: localStorage.getItem('token')
                     }
