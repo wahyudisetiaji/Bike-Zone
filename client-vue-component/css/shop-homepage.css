@@ -37,6 +37,10 @@ body {
   color: white;
 }
 
+.card-title a {
+  color: white;
+}
+
 
 @media (min-width: 992px) {
   body {

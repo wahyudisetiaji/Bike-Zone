@@ -45,7 +45,9 @@
         <div class="col-lg-9">
          <contentcarousel></contentcarousel>
           <div class="row">
-            <contentcard :items="items" :token="token" @detail-item="bike=$event" @data-cart="datacart=$event"></contentcard>
+                
+                <contentcard :items="items" :token="token" @detail-item="bike=$event" @data-cart="datacart=$event"></contentcard>
+           
             <contentdetail :bike="bike"></contentdetail>
             <contentcart :datacart="datacart"></contentcart>
             <contenttransaction :transaction="transaction"></contenttransaction>

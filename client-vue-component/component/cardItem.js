@@ -2,8 +2,9 @@ Vue.component('contentcard', {
     template: 
         `   
                 <div>
-                    <div class="col-lg-4 col-md-4 mb-4" v-for="(item, index) in items">
-                            <div class="card h-100">
+                        <div>
+                
+                            <div class=" card h-100 " v-for="(item, index) in items" >
                                 <a href="#"><img class="card-img-top" :src="item.image" alt=""></a>
                                 <div class="card-body">
                                     <h4 class="card-title">
@@ -16,7 +17,8 @@ Vue.component('contentcard', {
                                     <button type="button" class="btn btn-dark" @click="oneItem(item)" data-toggle="modal" data-target="#exampleModal">Detail</button>
                                 </div>
                             </div>
-                    </div>
+
+                        </div>
                 </div>
         `,
         props: ["items", "token"],
