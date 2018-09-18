@@ -117,7 +117,7 @@ Vue.component('navbarbike', {
                 event.preventDefault()
                 axios({
                     method: 'POST',
-                    url: 'http://localhost:3000/users/login',
+                    url: 'https://server-bikezone.wahyudisetiaji.xyzusers/login',
                     data: {
     
                         email : this.email,
@@ -144,7 +144,7 @@ Vue.component('navbarbike', {
                 event.preventDefault()
                 axios({
                     method: 'POST',
-                    url: 'http://localhost:3000/users/register',
+                    url: 'https://server-bikezone.wahyudisetiaji.xyz/users/register',
                     data: {
                         name : this.name,
                         email : this.email,
@@ -179,7 +179,7 @@ Vue.component('navbarbike', {
             myTransaction(){
                 axios({
                     method: 'GET',
-                    url: 'http://localhost:3000/carts',
+                    url: 'https://server-bikezone.wahyudisetiaji.xyz/carts',
                     headers: {
                         token: localStorage.getItem('token')
                     }

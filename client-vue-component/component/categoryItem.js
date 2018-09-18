@@ -17,7 +17,7 @@ Vue.component('contentcategory', {
       
                 axios({
                     method: 'GET',
-                    url: `http://localhost:3000/items/${category}`,
+                    url: `https://server-bikezone.wahyudisetiaji.xyz/items/${category}`,
                     headers: {
                         token: localStorage.getItem('token')
                     }
@@ -37,7 +37,7 @@ Vue.component('contentcategory', {
     
                 axios({
                     method: 'GET',
-                    url: 'http://localhost:3000/items',
+                    url: `https://server-bikezone.wahyudisetiaji.xyz/items`,
                     headers: {
                         token: localStorage.getItem('token')
                     }

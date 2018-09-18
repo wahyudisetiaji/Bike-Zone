@@ -47,7 +47,7 @@ Vue.component('contentcart', {
             createCart() {
                 axios({
                     method: 'POST',
-                    url: 'http://localhost:3000/carts',
+                    url:  `https://server-bikezone.wahyudisetiaji.xyz/carts`,
                     headers: {
                         token: localStorage.getItem('token')
                     },

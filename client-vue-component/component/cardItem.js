@@ -53,7 +53,7 @@ Vue.component('contentcard', {
       
                 axios({
                     method: 'GET',
-                    url: `http://localhost:3000/items/${category}`,
+                    url: `https://server-bikezone.wahyudisetiaji.xyz/${category}`,
                     headers: {
                         token: localStorage.getItem('token')
                     }
